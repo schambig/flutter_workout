@@ -16,4 +16,25 @@ void main() {
   print(mascota.keys);  // return all the keys
   print(mascota.values);  // return all the values
   print(mascotas);  // {Pequeña, Blanca, Colitas, Manchas}
+
+  // Positional parameters
+  // var mascota2 = Mascota(name, specie, age, canReproduce)
+
+  // Named parameters
+  var mascota3 = Mascota(name: 'Colitas');
+  print(mascota3.name);  // Colitas
+}
+
+class Mascota {
+  Mascota({
+    required this.name,
+    this.specie,
+    this.age,
+    this.canReproduce,
+});
+
+  final String name;
+  final String? specie;
+  final int? age;
+  final bool? canReproduce;
 }
