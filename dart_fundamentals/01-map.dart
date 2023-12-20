@@ -21,20 +21,32 @@ void main() {
   // var mascota2 = Mascota(name, specie, age, canReproduce)
 
   // Named parameters
-  var mascota3 = Mascota(name: 'Colitas');
+  var mascota3 = Mascota(name: 'Colitas', specie: 'Feline');
   print(mascota3.name);  // Colitas
+  print(mascota3.specie);  // Feline
 }
 
-class Mascota {
+abstract class Animal {
+  Animal(this.specie);
+
+  final String specie;
+
+  String get animalSpecie => specie;
+}
+
+class Mascota implements Animal{
   Mascota({
     required this.name,
-    this.specie,
+    required this.specie,
     this.age,
     this.canReproduce,
 });
 
   final String name;
-  final String? specie;
+  final String specie;
   final int? age;
   final bool? canReproduce;
+
+  @override
+  String get animalSpecie => specie;
 }
